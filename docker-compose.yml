@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  app-server:
+    image: adrenadev-tutorial:latest
+    ports:
+      - "8090:8080"
+    volumes:
+      - /data/adrenadev-tutorial
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - backend
+  db:
+    image: mysql:5.7
+    ports:
+      - "33066:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: adrenadev_tutorial
+      MYSQL_USER: fandygotama
+      MYSQL_PASSWORD: fandygotama
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+volumes:
+  db-data:
+
+networks:
+  backend:

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adrenadev-tutorial
+spec:
+  selector:
+    matchLabels:
+      app: adrenadev-tutorial
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: adrenadev-tutorial
+    spec:
+      containers:
+      - name: adrenadev-tutorial
+        image: acr0myapp485959.azurecr.io/adrenadev-tutorial:2
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adrenadev-tutorial
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: adrenadev-tutorial

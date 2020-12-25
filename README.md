@@ -24,10 +24,6 @@ docker-compose up -d
 curl -X POST http://localhost:8090/api/users -H "Content-Type: application/json" \
   -d "{\"name\":\"Fandy Gotama\",\"phone\":\"+62816521323\"}"
 
-- Push image
-
-az acr login -n acr0myapp485959
-./gradlew jib
 ```
 
   * Use MySQL database
@@ -65,4 +61,9 @@ spring.profiles.active=azure
 
 - test with docker-compose
 docker-compose up -d
+
+- Push image
+
+az acr login -n acr0myapp485959
+./gradlew jib
 ```

@@ -22,6 +22,10 @@ configurations {
 jib {
 	to {
 		image = "acr0myapp485959.azurecr.io/adrenadev-tutorial:latest"
+    		auth {
+      			username = "acr0myapp485959"
+      			password = "xxxxxxx"
+    		}
 	}
 }
 repositories {

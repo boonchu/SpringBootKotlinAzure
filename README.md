@@ -4,6 +4,7 @@
 
 ```
 - Pull code
+
 git clone https://github.com/gotamafandy/SpringBootKotlinAzure.git
 cd SpringBootKotlinAzure
 
@@ -36,13 +37,15 @@ make stage
 - Use Portal
 
 - Setup 'Azure Container Registry'
-  https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal
+
+  * https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal
+  * https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
 
 - Note: Recommend to use terraform
 
 - Use an existing service principal to assign 'acrpull'
 
-make deploy-image
+$ make deploy-image
 
 - Run MySQLDB Test
 
@@ -78,12 +81,12 @@ Bye
 
 - Shutdown smoke test
 
-docker-compose down --rmi all
+$ docker-compose down --rmi all
 
 - Push image
 
-./gradlew clean build
-./gradlew jib
+$ ./gradlew clean build
+$ ./gradlew jib
 
 ```
 
@@ -91,7 +94,8 @@ docker-compose down --rmi all
 
 ```
 - Login AKS
-az aks get-credentials -g devops-qa -n myapp485959
+
+$ az aks get-credentials -g devops-qa -n myapp485959
 
 - Deploy service with internal LB
   https://docs.microsoft.com/en-us/azure/aks/internal-lb
@@ -99,7 +103,7 @@ az aks get-credentials -g devops-qa -n myapp485959
 - Deployment
   https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
 
-kubectl apply -f deployment.yml 
+$ kubectl apply -f deployment.yml 
 
 kubectl get ep 
 NAME                 ENDPOINTS                         AGE
@@ -119,14 +123,14 @@ deployment.apps/adrenadev-tutorial   2/2     2            2           3m41s
 
 - Validate POST
 
-curl -X POST http://10.17.1.37/api/users -H "Content-Type: application/json" \
+$ curl -X POST http://10.17.1.37/api/users -H "Content-Type: application/json" \
      -d "{\"name\":\"Fandy Gotama\",\"phone\":\"+628111111111\"}"
 
 {"id":2,"name":"Fandy Gotama","phone":"+628111111111"}
 
 - Validate GET
 
-curl http://10.17.1.37/api/users -H "Content-Type: application/json" | jq
+$ curl http://10.17.1.37/api/users -H "Content-Type: application/json" | jq
 [
   {
     "id": 1,
@@ -139,5 +143,4 @@ curl http://10.17.1.37/api/users -H "Content-Type: application/json" | jq
     "phone": "+628111111111"
   }
 ]
-
 ```

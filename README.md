@@ -84,6 +84,7 @@ docker-compose down --rmi all
 
 ./gradlew clean build
 ./gradlew jib
+
 ```
 
   * Deploy to AKS

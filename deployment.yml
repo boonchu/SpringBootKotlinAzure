@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: adrenadev-tutorial
-        image: acr0myapp485959.azurecr.io/adrenadev-tutorial:2
+        image: acr0myapp485959.azurecr.io/adrenadev-tutorial:latest
         ports:
         - containerPort: 8080
 

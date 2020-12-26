@@ -1,6 +1,6 @@
 #### Build and Push Images
 
-  * Use local database for testing
+* Use local database for testing
 
 ```
 - Pull code
@@ -17,7 +17,7 @@ make
 
 ```
 
-  * Use Azure MySQL database for testing
+* Use Azure MySQL database for testing
 
 ```
 - Setup 'MySQL'
@@ -31,7 +31,7 @@ make stage
 
 ```
 
-  * Test images and deploy kubernetes
+* Test images and deploy kubernetes
 
 ```
 - Use Portal
@@ -90,7 +90,7 @@ $ ./gradlew jib
 
 ```
 
-  * Deploy to AKS
+* Deploy to AKS
 
 ```
 - Login AKS

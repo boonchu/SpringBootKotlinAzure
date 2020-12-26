@@ -21,7 +21,7 @@ configurations {
 }
 jib {
 	to {
-		image = "acr0myapp485959.azurecr.io/adrenadev-tutorial:2"
+		image = "acr0myapp485959.azurecr.io/adrenadev-tutorial:latest"
 	}
 }
 repositories {
